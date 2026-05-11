@@ -1,0 +1,28 @@
+# Alternative: Settings → Pages → Deploy from a branch → gh-pages / (root)
+# Run manually so it does not compete with deploy-pages.yml on every push.
+name: Publish to gh-pages branch
+
+on:
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: SPA fallback
+        run: cp dist/index.html dist/404.html
+      - uses: peaceiris/actions-gh-pages@v4
+        if: github.ref == 'refs/heads/main'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: dist
+          force_orphan: true
