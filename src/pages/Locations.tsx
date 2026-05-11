@@ -22,14 +22,8 @@ export function Locations() {
               <Card className="flex h-full flex-col">
                 <div className="mb-5 aspect-[16/10] overflow-hidden rounded-2xl bg-cream-200 ring-1 ring-brown-800/10">
                   <img
-                    src={
-                      i === 0
-                        ? 'https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=800&q=80'
-                        : i === 1
-                          ? 'https://images.unsplash.com/photo-1550614000-489b99133fd6?w=800&q=80'
-                          : 'https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=800&q=80'
-                    }
-                    alt=""
+                    src={loc.imageSrc}
+                    alt={loc.imageAlt}
                     className="h-full w-full object-cover"
                     width={800}
                     height={500}

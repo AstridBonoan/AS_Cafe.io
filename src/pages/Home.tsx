@@ -6,6 +6,7 @@ import { LinkButton } from '../components/ui/LinkButton'
 import { featuredDrinks } from '../data/menu'
 import { testimonials, galleryImages } from '../data/testimonials'
 import { fadeUp } from '../lib/motion'
+import { heroImage } from '../data/images'
 
 export function Home() {
   const drinks = featuredDrinks()
@@ -56,8 +57,8 @@ export function Home() {
           >
             <div className="aspect-[4/5] overflow-hidden rounded-[2rem] shadow-lift ring-1 ring-brown-800/10">
               <img
-                src="https://images.unsplash.com/photo-1447930021408-2c98187b7a07?w=900&q=85"
-                alt="Hands wrapping a warm mug on a wooden table"
+                src={heroImage.src}
+                alt={heroImage.alt}
                 className="h-full w-full object-cover"
                 width={720}
                 height={900}

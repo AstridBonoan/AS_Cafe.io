@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { Container } from '../components/ui/Container'
 import { SectionHeading } from '../components/SectionHeading'
 import { fadeUpAbout as fadeUp } from '../lib/motion'
+import { aboutImage } from '../data/images'
 
 export function About() {
   return (
@@ -16,8 +17,8 @@ export function About() {
         <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
           <motion.div {...fadeUp} className="overflow-hidden rounded-[2rem] shadow-lift ring-1 ring-brown-800/10">
             <img
-              src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1000&q=85"
-              alt="Cozy café interior with wooden tables and pendant lights"
+              src={aboutImage.src}
+              alt={aboutImage.alt}
               width={1000}
               height={750}
               className="h-full w-full object-cover"
